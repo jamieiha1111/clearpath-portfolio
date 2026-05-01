@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clearpath — Case Study | Jamie Iha</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ocean:#0a3d62; --teal:#0e7c7b; --sand:#f5f0e8; --warm:#fdfbf7;
+  --coral:#e07b54; --gold:#c9a84c; --text:#1a1a2e; --mid:#5a5a7a;
+  --light:#9090a8; --border:#e4e0d8; --success:#2d7a5f;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--warm);color:var(--text);overflow-x:hidden;}
+
+.hero{background:var(--ocean);padding:80px 40px 64px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(14,124,123,0.25) 0%,transparent 65%);}
+.hero-inner{max-width:860px;margin:0 auto;position:relative;}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:32px;transition:color 0.2s;}
+.back-link:hover{color:white;}
+.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:2.5px;color:rgba(14,124,123,0.9);font-weight:600;margin-bottom:16px;}
+.hero-title{font-family:'Fraunces',serif;font-size:clamp(38px,6vw,62px);color:white;line-height:1.1;font-weight:300;margin-bottom:16px;}
+.hero-title em{font-style:italic;color:rgba(201,168,76,0.9);}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.65);line-height:1.65;max-width:560px;margin-bottom:36px;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;}
+.tag{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:500;}
+.tag-o{border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.7);}
+.tag-f{background:rgba(14,124,123,0.3);color:rgba(255,255,255,0.9);border:1px solid rgba(14,124,123,0.5);}
+
+.glance{background:white;border-bottom:1px solid var(--border);padding:28px 40px;}
+.glance-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.glance-item{text-align:center;}
+.glance-num{font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--ocean);}
+.glance-label{font-size:12px;color:var(--light);margin-top:4px;}
+
+.content{max-width:860px;margin:0 auto;padding:64px 40px 100px;}
+.section{margin-bottom:56px;}
+.sec-eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2.5px;color:var(--teal);font-weight:600;margin-bottom:10px;}
+.sec-title{font-family:'Fraunces',serif;font-size:28px;font-weight:300;color:var(--ocean);margin-bottom:16px;line-height:1.2;}
+p{font-size:15px;color:var(--mid);line-height:1.75;margin-bottom:14px;}
+p:last-child{margin-bottom:0;}
+strong{color:var(--text);font-weight:600;}
+em{font-style:italic;}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px;}
+.card{background:white;border:1px solid var(--border);border-radius:14px;padding:20px;transition:box-shadow 0.2s;}
+.card:hover{box-shadow:0 4px 20px rgba(10,61,98,0.08);}
+.card-icon{font-size:22px;margin-bottom:10px;}
+.card-title{font-size:13px;font-weight:600;color:var(--ocean);margin-bottom:6px;}
+.card-body{font-size:12px;color:var(--mid);line-height:1.6;}
+
+.logic-box{background:#f0f6fc;border:1px solid #cde0f5;border-radius:14px;padding:24px 28px;margin-top:20px;}
+.logic-box h4{font-size:14px;font-weight:600;color:var(--ocean);margin-bottom:12px;}
+.ls{display:flex;gap:14px;margin-bottom:12px;align-items:flex-start;}
+.ls:last-child{margin-bottom:0;}
+.ln{width:26px;height:26px;border-radius:50%;background:var(--ocean);color:white;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.lt{font-size:13px;color:var(--mid);line-height:1.6;padding-top:3px;}
+
+.warn-box{background:linear-gradient(135deg,#fef9e7,#fdf5e6);border:1px solid #f9e79f;border-radius:16px;padding:24px 28px;margin-top:20px;}
+.warn-box h4{font-size:14px;font-weight:700;color:#7d6608;margin-bottom:12px;}
+.warn-list{list-style:none;}
+.warn-list li{font-size:13px;color:#5a4a08;padding:7px 0;border-bottom:1px solid rgba(201,168,76,0.2);display:flex;gap:10px;align-items:flex-start;}
+.warn-list li:last-child{border-bottom:none;}
+
+.two-layer{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;}
+.lc{border-radius:14px;padding:24px;}
+.lc-light{background:white;border:2px solid var(--border);}
+.lc-dark{background:var(--ocean);}
+.lc-ey{font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:8px;}
+.lc-light .lc-ey{color:var(--teal);}
+.lc-dark .lc-ey{color:rgba(14,124,123,0.9);}
+.lc-name{font-family:'Fraunces',serif;font-size:20px;margin-bottom:8px;}
+.lc-light .lc-name{color:var(--ocean);}
+.lc-dark .lc-name{color:white;}
+.lc-desc{font-size:13px;line-height:1.6;}
+.lc-light .lc-desc{color:var(--mid);}
+.lc-dark .lc-desc{color:rgba(255,255,255,0.7);}
+.lc-aud{font-size:12px;margin-top:12px;}
+.lc-light .lc-aud{color:var(--light);}
+.lc-dark .lc-aud{color:rgba(255,255,255,0.35);}
+
+.takeaway{background:var(--ocean);border-radius:20px;padding:40px;margin-top:20px;position:relative;overflow:hidden;}
+.takeaway::after{content:'';position:absolute;right:-40px;bottom:-40px;width:200px;height:200px;border-radius:50%;background:rgba(14,124,123,0.2);}
+.tq{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:white;line-height:1.5;font-style:italic;margin-bottom:16px;position:relative;}
+.ta{font-size:13px;color:rgba(255,255,255,0.5);}
+
+.cta{text-align:center;margin-top:48px;}
+.btn-live{display:inline-flex;align-items:center;gap:10px;background:var(--ocean);color:white;padding:16px 36px;border-radius:12px;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
+.btn-live:hover{background:var(--teal);transform:translateY(-2px);box-shadow:0 8px 30px rgba(10,61,98,0.25);}
+.btn-sub{font-size:13px;color:var(--light);margin-top:10px;}
+
+.embed-wrap{border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 24px rgba(10,61,98,0.1);}
+.embed-bar{background:var(--ocean);padding:14px 20px;display:flex;align-items:center;gap:12px;}
+.embed-icon{width:28px;height:28px;background:rgba(255,255,255,0.15);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.embed-meta{flex:1;}
+.embed-name{color:white;font-size:13px;font-weight:600;}
+.embed-sub{color:rgba(255,255,255,0.5);font-size:11px;}
+.embed-link{color:rgba(255,255,255,0.6);font-size:12px;text-decoration:none;flex-shrink:0;}
+
+.foot-note{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);font-size:12px;color:var(--light);line-height:1.7;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.hero-inner>*{animation:fadeUp 0.6s ease both;}
+.hero-inner>*:nth-child(1){animation-delay:0.05s;}
+.hero-inner>*:nth-child(2){animation-delay:0.12s;}
+.hero-inner>*:nth-child(3){animation-delay:0.20s;}
+.hero-inner>*:nth-child(4){animation-delay:0.28s;}
+.hero-inner>*:nth-child(5){animation-delay:0.35s;}
+
+@media(max-width:640px){
+  .hero{padding:48px 20px 44px;}
+  .glance-inner{grid-template-columns:repeat(2,1fr);}
+  .content{padding:40px 20px 64px;}
+  .cards{grid-template-columns:1fr;}
+  .two-layer{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <a href="https://jmeihadsgn.wixstudio.com/jamieiha" class="back-link">← Back to Portfolio</a>
+    <div class="eyebrow">Case Study — Product Strategy & UX</div>
+    <h1 class="hero-title">Clearpath<br><em>Capital Readiness Platform</em></h1>
+    <p class="hero-sub">A cross-functional decision intelligence tool that surfaces every team's perspective on an opportunity — before formal review begins.</p>
+    <div class="hero-tags">
+      <span class="tag tag-f">Product Strategy</span>
+      <span class="tag tag-f">Cross-Functional UX</span>
+      <span class="tag tag-f">Financial Operations</span>
+      <span class="tag tag-o">HTML / CSS / JS</span>
+      <span class="tag tag-o">Rules-Based Logic</span>
+      <span class="tag tag-o">Enterprise UX</span>
+    </div>
+  </div>
+</div>
+
+<div class="glance">
+  <div class="glance-inner">
+    <div class="glance-item">
+      <div class="glance-num">5</div>
+      <div class="glance-label">Opportunity types covered</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-num">5</div>
+      <div class="glance-label">Departments aligned per review</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-num">7</div>
+      <div class="glance-label">Languages supported</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-num">0</div>
+      <div class="glance-label">AI used — fully rules-based</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="sec-eyebrow">The Problem</div>
+    <h2 class="sec-title">Good opportunities stall because teams aren't aligned — not because the deal is bad</h2>
+    <p>In most organizations, an opportunity moves through multiple teams before anyone realizes Legal has a concern, Product has a capacity issue, or PR sees a reputational flag. By then it's already bounced through several handoffs and wasted everyone's time.</p>
+    <p>The problem isn't the opportunity. It's that <strong>no one had a shared view of all five perspectives at once</strong> — before the process started.</p>
+  </div>
+
+  <div class="section">
+    <div class="sec-eyebrow">What I Built</div>
+    <h2 class="sec-title">One tool. Five perspectives. One clear picture.</h2>
+    <p>Clearpath is a guided, three-screen assessment that evaluates any opportunity — a business loan, a real estate deal, an internal initiative, or a community program — across five organizational lenses simultaneously: Lending, Legal, Product, PR, and Executive Leadership. It produces a full strategic readiness picture in under 5 minutes, simple enough for a small business owner and substantive enough for a Chief Credit Officer.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <div class="card-title">Stakeholder Alignment Score</div>
+        <div class="card-body">Shows whether Lending, Legal, PR, Product, and Executive Leadership are aligned — or where friction is likely to emerge before review even begins.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧠</div>
+        <div class="card-title">Strategic Recommendation Summary</div>
+        <div class="card-body">A 2–3 sentence plain-English interpretation of the full picture — written for executives, readable by anyone in the room.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔀</div>
+        <div class="card-title">Live Scenario Testing</div>
+        <div class="card-body">Toggle "interest rates rise" or "revenue declines" and watch the recommendation, scores, and stakeholder alignment picture update instantly.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🗺️</div>
+        <div class="card-title">Visual Review Path + Timeline</div>
+        <div class="card-body">Which departments review this, in what order, and how long it will realistically take — shown as a clean visual flow, not a wall of text.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌺</div>
+        <div class="card-title">Relationship Value + Community Impact</div>
+        <div class="card-body">Surfaces deposit potential, expansion opportunity, local job creation, and CRA alignment — the full picture beyond this single transaction.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <div class="card-title">Fast Track Eligibility</div>
+        <div class="card-body">When all five departments are aligned and the opportunity is strong, Clearpath flags it for accelerated review — so the best deals move fastest.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-eyebrow">How It Works</div>
+    <h2 class="sec-title">No AI. No black box. Every score is explainable.</h2>
+    <p>Clearpath uses transparent, rules-based logic — the same way a checklist works, just made visual and interactive. Here's the full flow in plain language:</p>
+    <div class="logic-box">
+      <h4>From intake to insight in four steps:</h4>
+      <div class="ls">
+        <div class="ln">1</div>
+        <div class="lt"><strong>You answer 6–8 questions</strong> about the opportunity — revenue consistency, repayment confidence, community impact, team capacity. Each answer maps to a point value based on how strongly it signals readiness.</div>
+      </div>
+      <div class="ls">
+        <div class="ln">2</div>
+        <div class="lt"><strong>Six readiness scores are calculated</strong> across Readiness, Risk, Growth Potential, Relationship Value, Deposit Opportunity, and Community Impact. Think of it as a report card — each category gets its own grade derived from your answers.</div>
+      </div>
+      <div class="ls">
+        <div class="ln">3</div>
+        <div class="lt"><strong>Five departmental stances are generated</strong> — Lending, Legal, Product, PR, and Executive Leadership each receive a position (Supportive, Conditional, or Concerns) based on what the scores suggest about where they'd likely land. This is the stakeholder alignment layer.</div>
+      </div>
+      <div class="ls">
+        <div class="ln">4</div>
+        <div class="lt"><strong>Everything synthesizes into a strategic output</strong> — a plain-English recommendation, an overall alignment score, a visual review path, scenario testing, and clear next steps. A Decision Style toggle (Conservative / Balanced / Growth-Oriented) adjusts how scores are weighted throughout.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-eyebrow">Scope & Boundaries</div>
+    <h2 class="sec-title">What Clearpath does not do — on purpose</h2>
+    <p>The most important design decision was choosing what to leave out. Clearpath surfaces perspectives — it does not make decisions.</p>
+    <div class="warn-box">
+      <h4>⚠️ Clearpath does not replace:</h4>
+      <ul class="warn-list">
+        <li>🏦 <span><strong>Underwriting.</strong> It identifies whether an opportunity is ready for underwriting — not whether it should be approved.</span></li>
+        <li>⚖️ <span><strong>Legal and compliance review.</strong> Legal flags are surfaced early, but professional review is always required.</span></li>
+        <li>👤 <span><strong>Human decision-makers.</strong> Every output includes a "Send for Manual Review" option. People make the final call — always.</span></li>
+        <li>🤖 <span><strong>AI or machine learning.</strong> Every score is produced by transparent, auditable, rule-based logic. No black box, no automated decisions.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-eyebrow">The Bigger Picture</div>
+    <h2 class="sec-title">Clearpath is one layer. Senior executives need both.</h2>
+    <p>Clearpath answers: <em>"Is this opportunity ready — and are we aligned to move on it?"</em> But a Chief Credit Officer is also asking: <em>"What does our entire portfolio look like if we keep approving deals like this one?"</em> That's a different question — and a different tool.</p>
+    <div class="two-layer">
+      <div class="lc lc-light">
+        <div class="lc-ey">Layer 1 — Operational</div>
+        <div class="lc-name">Clearpath</div>
+        <div class="lc-desc">For relationship managers, borrowers, and business owners. Evaluates readiness and cross-functional alignment before a single department review begins.</div>
+        <div class="lc-aud">Audience: Front-line staff, applicants, internal teams</div>
+      </div>
+      <div class="lc lc-dark">
+        <div class="lc-ey">Layer 2 — Executive</div>
+        <div class="lc-name">Credit Portfolio Strategy</div>
+        <div class="lc-desc">For credit officers and senior leadership. Models how approval rates, deal volume, and default scenarios affect the entire portfolio's risk-adjusted return.</div>
+        <div class="lc-aud">Audience: CCOs, credit teams, executive leadership</div>
+      </div>
+    </div>
+    <p style="margin-top:20px;">Together they cover the full decision lifecycle — from opportunity intake to portfolio-level risk management. That's the system a well-run institution actually needs.</p>
+  </div>
+
+  <div class="section">
+    <div class="sec-eyebrow">Layer 2 — Live Demo</div>
+    <h2 class="sec-title">Commercial Credit Portfolio Strategy Brief</h2>
+    <p style="margin-bottom:20px;">Built for credit officers and senior leadership. Adjust the sliders and watch portfolio risk, break-even analysis, and risk-adjusted return update in real time. No AI — transparent financial modeling calibrated for Hawaii's commercial lending environment.</p>
+    <div class="embed-wrap">
+      <div class="embed-bar">
+        <div class="embed-icon">📊</div>
+        <div class="embed-meta">
+          <div class="embed-name">Commercial Credit Portfolio Strategy Brief</div>
+          <div class="embed-sub">Hawaii commercial lending · Rules-based modeling · No AI</div>
+        </div>
+        <a href="https://jamieiha1111.github.io/credit-portfolio-strategy-brief/" target="_blank" class="embed-link">Open full screen ↗</a>
+      </div>
+      <iframe src="https://jamieiha1111.github.io/credit-portfolio-strategy-brief/"
+        style="width:100%;height:680px;border:none;display:block;background:white;"
+        title="Commercial Credit Portfolio Strategy Brief" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-eyebrow">Strategic Takeaway</div>
+    <h2 class="sec-title">Why this matters beyond the tool</h2>
+    <p>The strongest organizations don't just evaluate opportunities — they evaluate how their own teams will respond to them. Clearpath is built on that idea: surface every perspective early, reduce friction before it compounds, and make sure the right people have the right information before the first meeting happens.</p>
+    <div class="takeaway">
+      <div class="tq">"The strongest systems don't replace good judgment. They make sure good judgment gets the right information at the right time."</div>
+      <div class="ta">— Design principle behind Clearpath</div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <a href="https://jamieiha1111.github.io/clearpath/" target="_blank" class="btn-live">🔗 Try Clearpath Live →</a>
+    <div class="btn-sub">Fully interactive · No login required · Rules-based logic only</div>
+  </div>
+
+  <div class="foot-note">
+    <strong>Portfolio note:</strong> Clearpath is a strategic product concept built to demonstrate product thinking, UX design, financial operations knowledge, and cross-functional decision-making. It does not contain real financial data, does not connect to any banking systems, and is for portfolio and demonstration purposes only.
+  </div>
+
+</div>
+</body>
+</html>
